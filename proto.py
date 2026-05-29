@@ -51,8 +51,8 @@ with col1:
                     response = requests.post(N8N_WEBHOOK_URL, json=payload)
                     
                     if response.status_code == 200:
-                        st.write("Data asli dari n8n:", n8n_data)
                         n8n_data = response.json()
+                        st.write("Data asli dari n8n:", n8n_data)
                         ai_reply = n8n_data.get("balasan_ai", "Maaf, sistem sedang sibuk.")
                         
                         # Ekstraksi LEAD
