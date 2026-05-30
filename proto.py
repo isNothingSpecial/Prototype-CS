@@ -51,15 +51,25 @@ with col1:
                 
                 response = requests.post(N8N_WEBHOOK_URL, json=payload)
                 
+                #if response.status_code == 200:
+                    #n8n_data = response.json()
+                    
+                    # Menggunakan "output" sesuai format balasan AI Agent n8n
+                    #ai_reply = n8n_data.get("output", "Maaf, sistem sedang sibuk.")
+                    
+                    # 3. Ekstraksi LEAD (Filter format JSON tersembunyi)
+                    #display_reply = ai_reply
+                    #lead_match = re.search(r'===LEAD:(.*?)===', ai_reply, re.DOTALL)
                 if response.status_code == 200:
                     n8n_data = response.json()
                     
-                    # Menggunakan "output" sesuai format balasan AI Agent n8n
-                    ai_reply = n8n_data.get("output", "Maaf, sistem sedang sibuk.")
+                    # === TAMBAHKAN BARIS INI UNTUK DEBUGGING ===
+                    st.error("DEBUG DATA MENTAH DARI N8N:")
+                    st.json(n8n_data)
+                    # ===========================================
                     
-                    # 3. Ekstraksi LEAD (Filter format JSON tersembunyi)
-                    display_reply = ai_reply
-                    lead_match = re.search(r'===LEAD:(.*?)===', ai_reply, re.DOTALL)
+                    # Ganti "balasan_ai" menjadi "output"
+                    ai_reply = n8n_data.get("output", "Maaf, sistem sedang sibuk.")
                     
                     if lead_match:
                         try:
