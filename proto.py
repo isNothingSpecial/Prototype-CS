@@ -55,8 +55,8 @@ with col1:
                     n8n_data = response.json()
                     
                     # === TAMBAHKAN BARIS INI UNTUK DEBUGGING ===
-                    st.error("DEBUG DATA MENTAH DARI N8N:")
-                    st.json(n8n_data)
+                    #st.error("DEBUG DATA MENTAH DARI N8N:")
+                    #st.json(n8n_data)
                     # ===========================================
                     
                     # Ambil balasan dari n8n
