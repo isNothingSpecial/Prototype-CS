@@ -46,7 +46,7 @@ with col1:
                 # KARENA N8N SUDAH PAKAI MEMORY, KITA CUKUP KIRIM PESAN BARU & SESSION ID
                 payload = {
                     "pesan_user": prompt,
-                    "session_id": "sesi_ujicobalead_996" 
+                    "session_id": "sesi_ujicobalead_995" 
                 }
                 
                 response = requests.post(N8N_WEBHOOK_URL, json=payload)
